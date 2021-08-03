@@ -29,7 +29,7 @@ public class PlayerAction : MonoBehaviour
         }
         else
         {
-            m_G_ButtonPanel.SetActive(false);
+            //m_G_ButtonPanel.SetActive(false);
         }
     }
 
@@ -156,8 +156,9 @@ public class PlayerAction : MonoBehaviour
     // ↓ 조사하기 함수 (OnCollisionStay 함수에 넣을 것)
     void LookPoint(Collider other)
     {
+        
         if (other.CompareTag("LookPoint"))  //플레이어가 조사 영역 내에 있을 때 
-        {
+        {print("충돌");
             m_T_CommandText.text = "조사";
             m_G_ButtonPanel.SetActive(true);
 
@@ -181,8 +182,9 @@ public class PlayerAction : MonoBehaviour
     // ↓ 조사 영역을 벗어났을 때의 함수(OnCollisionExit 함수에 넣을 것)
     void OutLookArea(Collider other)
     {
+       
         if (other.CompareTag("LookPoint"))
-        {
+        { print("충돌 끝");
             m_G_ButtonPanel.SetActive(false);
             m_I_ButtonGage.fillAmount = 0;
 
